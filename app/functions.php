@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+
+
 if (!function_exists('redirect')) {
     /**
      * Redirect the user to given path.
@@ -16,10 +18,3 @@ if (!function_exists('redirect')) {
         exit;
     }
 }
-
-
-// function getPost (){
-//   $statement = $pdo->prepare('SELECT * FROM posts');
-//   $statement->execute();
-//   $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-// }

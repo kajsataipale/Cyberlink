@@ -1,9 +1,13 @@
 <?php require __DIR__.'/views/header.php'; ?>
 
+<article>
+
+
 <?php if (isset($_SESSION['user'])): ?>
-    <p>Welcome, <?php echo $_SESSION['user']['name']; ?>!</p>
+    <p>Welcome, <?php echo $_SESSION['user']['username']; ?>!</p>
     <p>Here you can post links</p>
 <?php endif; ?>
+</article>
 
 <article>
     <form action="app/posts/store.php" method="post">

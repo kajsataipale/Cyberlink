@@ -1,5 +1,5 @@
 <?php require __DIR__.'/views/header.php';
-// getPost();
+
 ?>
 
 <?php if (isset($_SESSION['user'])): ?>
@@ -15,7 +15,8 @@
 
 <?php foreach ($posts as $post): ?>
 <div>
-  <img class="profilepic" src="<?php echo $post['id']['image'] ?>.jpg">
+  <img class="profilepic" src="<?php echo $post['image'] ?>.jpg">
+      <div class="title"><?php echo $post['username'] ;?></div>
       <div class="title"><?php echo $post['title'] ;?></div>
       <div class="link"> <?php echo $post['link'] ;?></div>
       <div class="description"> <?php echo $post['description'] ;?></div>
