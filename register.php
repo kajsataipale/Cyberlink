@@ -20,18 +20,12 @@
             <small class="form-text text-muted">Please provide your email address.</small>
         </div>
         <div class="form-group">
-            <label for="email">Biography</label>
-            <textarea class="form-control" type="bio" name="bio" placeholder="I´m a student and I like baseboll.." required></textarea>
-            <small class="form-text text-muted">Please provide your biography</small>
-        </div>
-
-        <div class="form-group">
             <label for="password">Password</label>
             <input class="form-control" type="password" name="password" required>
             <small class="form-text text-muted">Please provide the your password (passphrase).</small>
         </div><!-- /form-group -->
 
-        <button type="submit" class="btn btn-primary">Submitt</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </article>
 <?php require __DIR__.'/views/footer.php'; ?>
