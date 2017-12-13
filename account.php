@@ -12,7 +12,7 @@
 
     <form action="app/auth/edit.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
-            <label for="email">User name</label>
+            <label for="email">Username</label>
             <input class="form-control" type="name" name="username" value="<?php echo $_SESSION['user']['username']; ?>">
             <small class="form-text text-muted">Please provide a user name</small>
         </div><!-- /form-group -->

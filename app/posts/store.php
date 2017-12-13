@@ -15,7 +15,7 @@ if (isset($_POST['title'], $_POST['link'])) {
   $statement->bindParam(':description', $description, PDO::PARAM_STR);
   $statement->execute();
 
-  $user = $statement->fetch(PDO::FETCH_ASSOC);
+  $post = $statement->fetch(PDO::FETCH_ASSOC);
 }
 
 // In this file we store/insert new posts in the database.
