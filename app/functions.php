@@ -18,8 +18,8 @@ if (!function_exists('redirect')) {
 }
 
 
-function getPost (){
-  $statement = $pdo->prepare('SELECT * FROM posts');
-  $statement->execute();
-  $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-}
+// function getPost (){
+//   $statement = $pdo->prepare('SELECT * FROM posts');
+//   $statement->execute();
+//   $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+// }

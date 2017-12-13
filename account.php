@@ -2,7 +2,7 @@
 <article>
 
     <?php if (isset($_SESSION['user'])): ?>
-        <h1>Welcome, <?php echo $_SESSION['user']['name']; ?>!</h1>
+        <h1>Welcome, <?php echo $_SESSION['user']['username']; ?>!</h1>
     <?php endif; ?>
     <p>This is the account page.</p>
     <p>Here you can edit your profile and upload a profile picture</p>
@@ -23,13 +23,13 @@
         </div>
         <div class="form-group">
             <label for="email">Biography</label>
-            <textarea class="form-control" type="bio" name="bio" <?php echo $_SESSION['user']['bio']; ?>></textarea>
+            <textarea class="form-control" type="bio" name="bio" <?php echo $_SESSION['user']['biography']; ?>></textarea>
             <small class="form-text text-muted">Please provide your biography</small>
         </div>
 
         <div class="form-group">
             <label for="password">Password</label>
-            <input class="form-control" type="password" name="password" required>
+            <input class="form-control" type="password" name="password" value="<?php echo $_SESSION['user']['password']; ?>">
             <small class="form-text text-muted">Please provide the your password (passphrase).</small>
         </div><!-- /form-group -->
         <div class="form-group">

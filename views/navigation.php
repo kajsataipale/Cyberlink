@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <?php if (isset($_SESSION['user'])): ?>
-      <a class="navbar-brand <?php echo $_SERVER['SCRIPT_NAME'] === '/home.php' ? 'active' : ''; ?>" href="/home.php"><?php echo $config['title']; ?></a>
+      <a class="navbar-brand" href="/home.php"><?php echo $config['title']; ?></a>
       <?php else: ?>
-        <a class="navbar-brand" href="/index.php"><?php echo $config['title']; ?></a>
+        <a class="navbar-brand <?php echo $_SERVER['SCRIPT_NAME'] === '/index.php' ? 'active' : ''; ?>" href="/home.php"><?php echo $config['title']; ?></a>
       <?php endif; ?>
     <ul class="navbar-nav">
       <li class="nav-item">

@@ -9,7 +9,7 @@ if (isset($_POST['email'], $_POST['password'])) {
     $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
 
     // Prepare, bind email parameter and execute the database query.
-    $statement = $pdo->prepare('SELECT * FROM users WHERE email = :email');
+    $statement = $pdo->prepare('SELECT * FROM users WHERE email = :email OR username= :email');
     $statement->bindParam(':email', $email, PDO::PARAM_STR);
     $statement->execute();
 
@@ -31,9 +31,10 @@ if (isset($_POST['email'], $_POST['password'])) {
         unset($user['password']);
 
         $_SESSION['user'] = $user;
+
+        redirect('/home.php');
     }
 }
 
 // We should put this redirect in the end of this file since we always want to
 // redirect the user back from this file. We don't know
-redirect('/home.php');

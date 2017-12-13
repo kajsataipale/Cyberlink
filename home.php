@@ -1,9 +1,9 @@
 <?php require __DIR__.'/views/header.php';
-getPost();
+// getPost();
 ?>
 
 <?php if (isset($_SESSION['user'])): ?>
-    <p>Welcome, <?php echo $_SESSION['user']['name']; ?>!</p>
+    <p>Welcome, <?php echo $_SESSION['user']['username']; ?>!</p>
     <p>Here you can vote up or down links</p>
 <?php endif; ?>
 
