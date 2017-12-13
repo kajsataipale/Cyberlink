@@ -1,8 +1,8 @@
 <?php require __DIR__.'/views/header.php'; ?>
 <article>
-    <h1><?php echo $config['title']; ?></h1>
+
     <?php if (isset($_SESSION['user'])): ?>
-      <p>Welcome, <?php echo $_SESSION['user']['name']; ?>!</p>
+        <h1>Welcome, <?php echo $_SESSION['user']['name']; ?>!</h1>
     <?php endif; ?>
     <p>This is the account page.</p>
     <p>Here you can edit your profile and upload a profile picture</p>
@@ -10,7 +10,7 @@
 <article>
 
 
-    <form action="app/auth/login.php" method="post">
+    <form action="app/auth/edit.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="email">User name</label>
             <input class="form-control" type="name" name="username" value="<?php echo $_SESSION['user']['username']; ?>">
@@ -32,7 +32,10 @@
             <input class="form-control" type="password" name="password" required>
             <small class="form-text text-muted">Please provide the your password (passphrase).</small>
         </div><!-- /form-group -->
-
+        <div class="form-group">
+        <label for="avatar">Choose a PNG image to upload</label>
+        <input type="file" name="avatar" accept=".png" required>
+        </div>
         <button type="submit" class="btn btn-primary">Save changes</button>
     </form>
 </article>

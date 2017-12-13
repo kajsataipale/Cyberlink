@@ -8,7 +8,7 @@
 <article>
 
 
-    <form action="app/auth/login.php" method="post">
+    <form action="app/auth/add.php" method="post">
         <div class="form-group">
             <label for="email">User name</label>
             <input class="form-control" type="name" name="username" placeholder="francisdarjeeling" required>
