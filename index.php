@@ -8,5 +8,17 @@
         <p>Welcome, <?php echo $_SESSION['user']['name']; ?>!</p>
     <?php endif; ?>
 </article>
+<article>
+  <h3>New member?</h3>
 
+      <a href="/register.php" ><button type="submit" class="btn btn-primary">Create Account</button></a>
+
+</article>
+  <h3>Already a member?</h3>
+
+      <a href="/login.php" ><button type="submit" class="btn btn-primary">Login</button></a>
+
+</article>
+
+</article>
 <?php require __DIR__.'/views/footer.php'; ?>

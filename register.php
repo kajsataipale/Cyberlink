@@ -1,7 +1,7 @@
 <?php require __DIR__.'/views/header.php'; ?>
 
 <article>
-    <h1>New member?</h1>
+    <h1>Register</h1>
     <p>Here´s were you fill in your information</p>
 </article>
 

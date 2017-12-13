@@ -21,11 +21,6 @@
 </article>
 
 
-<article>
-    <h2>New member?</h2>
 
-        <a href="/register.php" ><button type="submit" class="btn btn-primary">Create</button></a>
-
-</article>
 
 <?php require __DIR__.'/views/footer.php'; ?>
