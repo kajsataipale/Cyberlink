@@ -23,7 +23,7 @@
         </div>
         <div class="form-group">
             <label for="email">Biography</label>
-            <textarea class="form-control" type="bio" name="biography" <?php echo $_SESSION['user']['biography']; ?>></textarea>
+            <textarea class="form-control" type="text" name="biography"  ><?php echo $_SESSION['user']['biography']; ?></textarea>
             <small class="form-text text-muted">Please provide your biography</small>
         </div>
 

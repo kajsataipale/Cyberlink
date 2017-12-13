@@ -32,4 +32,11 @@ $statement->execute();
 
 $user = $statement->fetch(PDO::FETCH_ASSOC);
 
+
+$_SESSION['user'] = [
+          'username' => $user['username'],
+          'email' => $user['email'],
+          'biography' => $user['biography'],
+      ];
+
 redirect('/account.php');
