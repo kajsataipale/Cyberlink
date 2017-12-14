@@ -2,7 +2,7 @@
     <?php if (isset($_SESSION['user'])): ?>
       <a class="navbar-brand" href="/home.php"><?php echo $config['title']; ?></a>
       <?php else: ?>
-        <a class="navbar-brand <?php echo $_SERVER['SCRIPT_NAME'] === '/index.php' ? 'active' : ''; ?>" href="/home.php"><?php echo $config['title']; ?></a>
+        <a class="navbar-brand <?php echo $_SERVER['SCRIPT_NAME'] === '/index.php' ? 'active' : ''; ?>" href="/index.php"><?php echo $config['title']; ?></a>
       <?php endif; ?>
     <ul class="navbar-nav">
       <li class="nav-item">

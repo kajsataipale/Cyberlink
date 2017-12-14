@@ -15,19 +15,22 @@
   <?php  if(!isset($_SESSION['user']['picture'])): ?>
     <img src="images/placeholder.png" class="img-thumbnail" width="200px">
   <?php else : ?>
-    <img src="app/imgs/<?php $_SESSION['user']['picture']?>" class="img-thumbnail" width="20%">
+    <img src="images/<?php $_SESSION['user']['picture']?>" class="img-thumbnail" width="20%">
 
   <?php endif;?>
 
 </div class="form-group">
-<input type="file" name="picture">
-<button type="submitt"> Upload</button>
+<input type="file" name="picture" accept=".png, .jpg">
+<button type="submit"> Upload</button>
 
 <div>
 
 </div>
 
 </form>
+
+<!-- <form action="editaccount.php" method="post"> -->
+
 <p><b><?php echo $_SESSION['user']['username']; ?></b></p>
 
 
@@ -39,7 +42,7 @@
     <p><b><?php echo $_SESSION['user']['biography']; ?></b></p>
 
         <a href="/editaccount.php"><button type="submit" class="btn btn-primary">Edit profile</button></a>
-    </form>
+    <!-- </form> -->
 </article>
 
 
