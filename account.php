@@ -9,34 +9,36 @@
 </article>
 <article>
 
+  <form action="/app/auth/uploadimage.php" method="post" enctype="multipart/form-data">
 
-    <form action="app/auth/edit.php" method="post" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="email">Username</label>
-            <input class="form-control" type="name" name="username" value="<?php echo $_SESSION['user']['username']; ?>">
-            <small class="form-text text-muted">Please provide a user name</small>
-        </div><!-- /form-group -->
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input class="form-control" type="email" name="email" value="<?php echo $_SESSION['user']['email']; ?>">
-            <small class="form-text text-muted">Please provide your email address.</small>
-        </div>
-        <div class="form-group">
-            <label for="email">Biography</label>
-            <textarea class="form-control" type="text" name="biography"  ><?php echo $_SESSION['user']['biography']; ?></textarea>
-            <small class="form-text text-muted">Please provide your biography</small>
-        </div>
+<div class="form-group">
+  <?php  if(!isset($_SESSION['user']['picture'])): ?>
+    <img src="images/placeholder.png" class="img-thumbnail" width="200px">
+  <?php else : ?>
+    <img src="app/imgs/<?php $_SESSION['user']['picture']?>" class="img-thumbnail" width="20%">
 
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input class="form-control" type="password" name="password" value="<?php echo $_SESSION['user']['password']; ?>">
-            <small class="form-text text-muted">Please provide the your password (passphrase).</small>
-        </div><!-- /form-group -->
-        <!-- <div class="form-group">
-        <label for="avatar">Choose a PNG image to upload</label>
-        <input type="file" name="avatar" accept=".png" required>
-        </div> -->
-        <button type="submit" class="btn btn-primary">Save changes</button>
+  <?php endif;?>
+
+</div class="form-group">
+<input type="file" name="picture">
+<button type="submitt"> Upload</button>
+
+<div>
+
+</div>
+
+</form>
+<p><b><?php echo $_SESSION['user']['username']; ?></b></p>
+
+
+
+<p><?php echo $_SESSION['user']['email']; ?></p>
+
+
+            <label for="email"><i>Biography</i></label>
+    <p><b><?php echo $_SESSION['user']['biography']; ?></b></p>
+
+        <a href="/editaccount.php"><button type="submit" class="btn btn-primary">Edit profile</button></a>
     </form>
 </article>
 

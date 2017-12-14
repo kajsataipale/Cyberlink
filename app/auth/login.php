@@ -30,7 +30,14 @@ if (isset($_POST['email'], $_POST['password'])) {
         // Remember to not save the password in the session!
         unset($user['password']);
 
-        $_SESSION['user'] = $user;
+
+
+        $_SESSION['user'] = [
+                  'user_id'=> $user['user_id'],
+                  'username' => $user['username'],
+                  'email' => $user['email'],
+                  'biography' => $user['biography'],
+              ];
 
         redirect('/home.php');
     }

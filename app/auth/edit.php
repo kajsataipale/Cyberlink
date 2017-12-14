@@ -11,11 +11,12 @@ if (isset($_POST['email'], $_POST['password'], $_POST['biography'])) {
     // $image = filter_var(trim($_POST['image']), FILTER_SANITIZE_STRING);
 
 
-    $statement = $pdo->prepare('UPDATE users SET email=:email, username=:username, biography=:bio');
+    $statement = $pdo->prepare('UPDATE users SET email=:email, username=:username, biography=:bio WHERE user_id=:id');
 
     if (!$statement) {
         die(var_dump($pdo->errorInfo()));
     }
+    $statement->bindParam(':id', $_SESSION['user']['user_id'], PDO::PARAM_INT);
     $statement->bindParam(':email', $email, PDO::PARAM_STR);
     $statement->bindParam(':username', $username, PDO::PARAM_STR);
     $statement->bindParam(':bio', $bio, PDO::PARAM_STR);
@@ -34,6 +35,7 @@ $user = $statement->fetch(PDO::FETCH_ASSOC);
 
 
 $_SESSION['user'] = [
+          'user_id'=> $user['user_id'],
           'username' => $user['username'],
           'email' => $user['email'],
           'biography' => $user['biography'],
