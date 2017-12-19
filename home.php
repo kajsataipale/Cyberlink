@@ -22,15 +22,15 @@ $statement = $pdo->prepare("SELECT * from users NATURAL JOIN posts WHERE user_id
       <div>
             <div class="title"> <?php echo "Author: ". $post['username'] ;?></div>
             <div class="title"><?php echo $post['title'] ;?></div>
-             <a target="_blank" href=" <?php echo $post['link_url'] ;?> "><?php echo $post['link_url'] ?></a>
+             <a target="_blank" href=" <?php echo $post['link_url'] ;?> "><?php echo $post['link_url']; ?></a>
             <div class="description"> <?php echo $post['description'] ;?></div>
             <br>
       </div>
 
             <?php if ($post['user_id'] == $_SESSION['user']['user_id']): ?>
               <form action="editpost.php" method="post">
-               <input type="hidden" name="post_id" value="<?php echo $post['post_id'] ?>">
-               <a href="edit_post.php"><button type="submit" class="btn btn-primary">Edit/Delete</button></a>
+               <input type="hidden" name="post_id" value="<?php echo $post['post_id']; ?>">
+               <a href="editpost.php"><button type="submit" class="btn btn-primary">Edit/Delete</button></a>
            </form>
           <?php endif; ?>
     <?php endforeach ; ?>
