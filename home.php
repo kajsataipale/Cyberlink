@@ -1,6 +1,7 @@
 <?php require __DIR__.'/views/header.php';
 
 $statement = $pdo->prepare("SELECT * from users NATURAL JOIN posts WHERE user_id=user_id ORDER BY post_id DESC");
+
   $statement->execute();
   $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -23,6 +24,7 @@ $statement = $pdo->prepare("SELECT * from users NATURAL JOIN posts WHERE user_id
             <div class="title"><?php echo $post['title'] ;?></div>
              <a target="_blank" href=" <?php echo $post['link_url'] ;?> "><?php echo $post['link_url'] ?></a>
             <div class="description"> <?php echo $post['description'] ;?></div>
+            <br>
       </div>
 
             <?php if ($post['user_id'] == $_SESSION['user']['user_id']): ?>
