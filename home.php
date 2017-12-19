@@ -1,5 +1,9 @@
 <?php require __DIR__.'/views/header.php';
 
+$statement = $pdo->prepare("SELECT * from users NATURAL JOIN posts WHERE user_id=user_id ORDER BY post_id DESC");
+  $statement->execute();
+  $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <?php if (isset($_SESSION['user'])): ?>
@@ -12,19 +16,23 @@
 
 
 
-<?php if (isset($_SESSION['user'])): ?>
   <article>
     <?php foreach ($posts as $post): ?>
       <div>
-        <img class="profilepic" src="<?php echo $post['image'] ?>.jpg">
-            <div class="title"><?php echo $post['username'] ;?></div>
+            <div class="title"> <?php echo "Author: ". $post['username'] ;?></div>
             <div class="title"><?php echo $post['title'] ;?></div>
-            <div class="link"> <?php echo $post['link'] ;?></div>
+             <a target="_blank" href=" <?php echo $post['link_url'] ;?> "><?php echo $post['link_url'] ?></a>
             <div class="description"> <?php echo $post['description'] ;?></div>
       </div>
+
+            <?php if ($post['user_id'] == $_SESSION['user']['user_id']): ?>
+              <form action="editpost.php" method="post">
+               <input type="hidden" name="post_id" value="<?php echo $post['post_id'] ?>">
+               <a href="edit_post.php"><button type="submit" class="btn btn-primary">Edit/Delete</button></a>
+           </form>
+          <?php endif; ?>
     <?php endforeach ; ?>
   </article>
-<?php endif; ?>
 
 
 <?php require __DIR__.'/views/footer.php'; ?>

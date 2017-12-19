@@ -27,15 +27,6 @@ if (isset($_POST['title'], $_POST['link'])) {
   }
 
 
-    $statement = $pdo->prepare("SELECT * from users NATURAL JOIN posts WHERE user_id=user_id ORDER BY post_id DESC");
-
-      if (!$statement) {
-       die(var_dump($pdo->errorInfo()));
-     }
-  $statement->execute();
-
-  $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-
   redirect('/home.php');
 
 
