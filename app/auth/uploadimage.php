@@ -29,30 +29,30 @@ if (isset($_FILES['picture'])){
     $statement->execute();
 
 
+//
+// $statement = $pdo->query('SELECT * FROM users WHERE  username=:username');
+//
+//       if(!$statement){
+//         die(var_dump(
+//           $pdo->errorInfo()
+//         ));
+//       }
+//
+//
+//       $statement->bindParam(':username', $username, PDO::PARAM_STR);
+//       $statement->execute();
+//
+//
+//       $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-$statement = $pdo->query('SELECT * FROM users WHERE  username=:username');
 
-      if(!$statement){
-        die(var_dump(
-          $pdo->errorInfo()
-        ));
-      }
-
-
-      $statement->bindParam(':username', $username, PDO::PARAM_STR);
-      $statement->execute();
-
-
-      $user = $statement->fetch(PDO::FETCH_ASSOC);
-
-
-      $_SESSION['user'] = [
-                'picture'=> $user['image'],
-                'user_id'=> $user['user_id'],
-                'username' => $user['username'],
-                'email' => $user['email'],
-                'biography' => $user['biography'],
-            ];
+      // $_SESSION['user'] = [
+      //           'picture'=> $user['image'],
+      //           'user_id'=> $user['user_id'],
+      //           'username' => $user['username'],
+      //           'email' => $user['email'],
+      //           'biography' => $user['biography'],
+      //       ];
 
       redirect('/account.php');
 }

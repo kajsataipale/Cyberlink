@@ -6,7 +6,7 @@ require __DIR__.'/../autoload.php';
 
 
 if (isset($_POST['post_id'],$_POST['title'],$_POST['description'],$_POST['link_url'] )){
-  $postId = filter_var($_POST['post_id'], FILTER_SANITIZE_NUMBER_INT);
+  $PostId = filter_var($_POST['post_id'], FILTER_SANITIZE_NUMBER_INT);
   $title = filter_var($_POST['title'], FILTER_SANITIZE_STRING);
   $description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
   $link_url = filter_var($_POST['link_url'], FILTER_SANITIZE_URL);
@@ -21,7 +21,7 @@ if (isset($_POST['post_id'],$_POST['title'],$_POST['description'],$_POST['link_u
 $statement->bindParam(':title', $title, PDO::PARAM_STR);
  $statement->bindParam(':description', $description, PDO::PARAM_STR);
  $statement->bindParam(':link_url', $link_url, PDO::PARAM_STR);
- $statement->bindParam(':post_id', $postId, PDO::PARAM_INT);
+ $statement->bindParam(':post_id', $PostId, PDO::PARAM_INT);
  $statement->execute();
 
 redirect('/editpost.php');

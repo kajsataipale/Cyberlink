@@ -1,8 +1,19 @@
 <?php require __DIR__.'/views/header.php';
 
+$statement = $pdo->query('SELECT * FROM users WHERE  username=:username');
 
-      // $user = $statement->fetch(PDO::FETCH_ASSOC);
+      if(!$statement){
+        die(var_dump(
+          $pdo->errorInfo()
+        ));
+      }
 
+
+      $statement->bindParam(':username', $username, PDO::PARAM_STR);
+      $statement->execute();
+
+
+      $user = $statement->fetch(PDO::FETCH_ASSOC);
  ?>
 <article>
 
@@ -20,16 +31,11 @@
   <?php  if(!isset($_SESSION['user']['picture'])): ?>
     <img src="images/placeholder.png" class="img-thumbnail" width="200px">
   <?php else : ?>
-    <img src="<?php echo "images/". $_SESSION['user']['picture']."png"?>" class="img-thumbnail" width="20%">
+    <img src="<?php echo "images/". $user['image']?>" class="img-thumbnail" width="20%">
 
   <?php endif;?>
 
-  <!-- <img src="
-  <?php if(isset($user['image'])): ?>
-  <?php echo "/images/".$user['image'].".png" ?>
-<?php else: echo "/images/placeholder.png" ?>
-  <?php endif; ?>
-  "  class="img-thumbnail" width="20%"alt=""></img> -->
+
 
 </div class="form-group">
 <input type="file" name="picture" accept=".png, .jpg">

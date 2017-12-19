@@ -2,14 +2,14 @@
 require __DIR__.'/views/header.php';
 
 if (isset($_POST['post_id'])) {
-  $postId = filter_var($_POST['post_id'], FILTER_SANITIZE_NUMBER_INT);
+  $PostId = filter_var($_POST['post_id'], FILTER_SANITIZE_NUMBER_INT);
 
 $statement = $pdo->prepare("SELECT * from posts NATURAL JOIN users WHERE post_id=:post_id AND user_id=:user_id");
 if (!$statement) {
   die(var_dump($pdo->errorInfo()));
 }
 
-$statement->bindParam(':post_id', $postId, PDO::PARAM_INT);
+$statement->bindParam(':post_id', $PostId, PDO::PARAM_INT);
 $statement->bindParam(':user_id', $_SESSION['user']['user_id'], PDO::PARAM_INT);
   $statement->execute();
   $post = $statement->fetch(PDO::FETCH_ASSOC);
