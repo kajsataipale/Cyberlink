@@ -1,4 +1,12 @@
-<?php require __DIR__.'/views/header.php'; ?>
+<?php require __DIR__.'/views/header.php';
+
+$statement = $pdo->prepare("SELECT * FROM users WHERE user_id = :user_id");
+$statement->bindParam(':user_id', $_SESSION['user']['user_id'], PDO::PARAM_INT);
+$statement->execute();
+$user = $statement->fetch(PDO::FETCH_ASSOC);
+
+
+?>
 
 <article>
 
@@ -11,6 +19,7 @@
 
 <article>
     <form action="app/posts/store.php" method="post">
+      <input type="hidden" name="id" value="<?php echo $user['user_id']; ?>">
         <div class="form-group">
             <label for="title">Title</label>
             <input class="form-control" type="text" name="title" placeholder="Amazing video" required>

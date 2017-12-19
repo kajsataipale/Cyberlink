@@ -8,7 +8,7 @@ if (isset($_POST['email'], $_POST['password'], $_POST['biography'])) {
     $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
     $username = filter_var(trim($_POST['username']), FILTER_SANITIZE_STRING);
     $bio = filter_var(trim($_POST['biography']), FILTER_SANITIZE_STRING);
-    // $image = filter_var(trim($_POST['image']), FILTER_SANITIZE_STRING);
+
 
 
     $statement = $pdo->prepare('UPDATE users SET email=:email, username=:username, biography=:bio WHERE user_id=:id');
@@ -20,7 +20,7 @@ if (isset($_POST['email'], $_POST['password'], $_POST['biography'])) {
     $statement->bindParam(':email', $email, PDO::PARAM_STR);
     $statement->bindParam(':username', $username, PDO::PARAM_STR);
     $statement->bindParam(':bio', $bio, PDO::PARAM_STR);
-    // $statement->bindParam(':image', $image, PDO::PARAM_STR);
+
     $statement->execute();
 
 

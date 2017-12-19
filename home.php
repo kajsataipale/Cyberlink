@@ -12,17 +12,19 @@
 
 
 
-
-<?php foreach ($posts as $post): ?>
-<div>
-  <img class="profilepic" src="<?php echo $post['image'] ?>.jpg">
-      <div class="title"><?php echo $post['username'] ;?></div>
-      <div class="title"><?php echo $post['title'] ;?></div>
-      <div class="link"> <?php echo $post['link'] ;?></div>
-      <div class="description"> <?php echo $post['description'] ;?></div>
-</div>
-<?php endforeach ; ?>
-
+<?php if (isset($_SESSION['user'])): ?>
+  <article>
+    <?php foreach ($posts as $post): ?>
+      <div>
+        <img class="profilepic" src="<?php echo $post['image'] ?>.jpg">
+            <div class="title"><?php echo $post['username'] ;?></div>
+            <div class="title"><?php echo $post['title'] ;?></div>
+            <div class="link"> <?php echo $post['link'] ;?></div>
+            <div class="description"> <?php echo $post['description'] ;?></div>
+      </div>
+    <?php endforeach ; ?>
+  </article>
+<?php endif; ?>
 
 
 <?php require __DIR__.'/views/footer.php'; ?>
