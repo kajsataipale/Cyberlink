@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 require __DIR__.'/../autoload.php';
 
-
 if (isset($_POST['post_id'],$_POST['title'],$_POST['description'],$_POST['link_url'] )){
   $PostId = filter_var($_POST['post_id'], FILTER_SANITIZE_NUMBER_INT);
   $title = filter_var($_POST['title'], FILTER_SANITIZE_STRING);
@@ -16,13 +15,14 @@ if (isset($_POST['post_id'],$_POST['title'],$_POST['description'],$_POST['link_u
   if (!$statement) {
     die(var_dump($pdo->errorInfo()));
   }
-}
 
 $statement->bindParam(':title', $title, PDO::PARAM_STR);
  $statement->bindParam(':description', $description, PDO::PARAM_STR);
  $statement->bindParam(':link_url', $link_url, PDO::PARAM_STR);
  $statement->bindParam(':post_id', $PostId, PDO::PARAM_INT);
- $statement->execute();
 
-redirect('/editpost.php');
+ $statement->execute();
+}
+
+redirect('/home.php');
 // In this file we upate posts in the database.

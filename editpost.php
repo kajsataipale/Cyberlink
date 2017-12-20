@@ -14,6 +14,16 @@ $statement->bindParam(':user_id', $_SESSION['user']['user_id'], PDO::PARAM_INT);
   $statement->execute();
   $post = $statement->fetch(PDO::FETCH_ASSOC);
 }
+
+$statement = $pdo->prepare("SELECT * from posts WHERE post_id=:post_id");
+if (!$statement) {
+  die(var_dump($pdo->errorInfo()));
+}
+
+$statement->bindParam(':post_id', $PostId, PDO::PARAM_INT);
+
+  $statement->execute();
+  $post = $statement->fetch(PDO::FETCH_ASSOC);
    ?>
 
 <article>
@@ -50,7 +60,7 @@ $statement->bindParam(':user_id', $_SESSION['user']['user_id'], PDO::PARAM_INT);
 
     <form action="app/auth/delete.php" method="post">
              <input type="hidden" name="post_id" value="<?php echo $post['post_id']; ?>">
-             <button type="submit" class="btn btn-warning">Delete</button>
+             <button type="submit" class="btn btn-danger">Delete</button>
          </form>
 </article>
 <?php require __DIR__.'/views/footer.php'; ?>

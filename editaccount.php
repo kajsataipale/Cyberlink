@@ -23,19 +23,15 @@
         </div>
         <div class="form-group">
             <label for="email">Biography</label>
-            <textarea class="form-control" type="text" name="biography"  ><?php echo $_SESSION['user']['biography']; ?></textarea>
+            <textarea class="form-control" type="text" name="biography"><?php echo $_SESSION['user']['biography']; ?></textarea>
             <small class="form-text text-muted">Please provide your biography</small>
         </div>
 
         <div class="form-group">
             <label for="password">Password</label>
-            <input class="form-control" type="password" name="password" value="<?php echo $_SESSION['user']['password']; ?>">
+            <input class="form-control" type="password" name="password" value="lösenord">
             <small class="form-text text-muted">Please provide the your password (passphrase).</small>
-        </div><!-- /form-group -->
-        <!-- <div class="form-group">
-        <label for="avatar">Choose a PNG image to upload</label>
-        <input type="file" name="avatar" accept=".png" required>
-        </div> -->
+        </div>
         <button type="submit" class="btn btn-primary">Save changes</button>
     </form>
 </article>
