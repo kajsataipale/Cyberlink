@@ -20,4 +20,4 @@ if (isset($_POST['post_id'])){
 
 redirect('/home.php');
 
-// In this file we delete new posts in the database.
+// In this file we delete posts in the database.

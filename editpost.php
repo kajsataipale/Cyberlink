@@ -58,7 +58,7 @@ $statement->bindParam(':post_id', $PostId, PDO::PARAM_INT);
     </form>
 
 
-    <form action="app/auth/delete.php" method="post">
+    <form action="app/posts/delete.php" method="post">
              <input type="hidden" name="post_id" value="<?php echo $post['post_id']; ?>">
              <button type="submit" class="btn btn-danger">Delete</button>
          </form>
