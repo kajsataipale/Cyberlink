@@ -17,8 +17,10 @@ $statement = $pdo->prepare("SELECT * from users NATURAL JOIN posts WHERE user_id
     <?php foreach ($posts as $post): ?>
       <div class="votediv">
         <form action="app/posts/vote.php" method="post">
-        <input type="image" class="votes" data-vote="1" src="images/voteup.png">
-        <input type="image" class="votes" data-vote="-1" src="images/votedown.png">
+        <input type="hidden" name="post_id" value="<?php echo $post['post_id']; ?>">
+        <input type="submit" name="up" class="votes" data-vote="1" value="1" src="images/voteup.png">
+        <input type="submit" name="down" class="votes" data-vote="-1" value="-1" src="images/votedown.png">
+
       </form>
       </div>
       <div>
