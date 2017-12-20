@@ -1,1 +1,9 @@
 /* In this file you can add your custom styles. */
+.votediv {
+  width: 25%;
+  padding-top: 5%;
+}
+.votes {
+  width: 10%;
+  padding-right: 1%;
+}

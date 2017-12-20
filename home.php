@@ -19,6 +19,10 @@ $statement = $pdo->prepare("SELECT * from users NATURAL JOIN posts WHERE user_id
 
   <article>
     <?php foreach ($posts as $post): ?>
+      <div class="votediv">
+        <image class="votes" src="images/voteup.png">
+        <image class="votes" src="images/votedown.png">
+      </div>
       <div>
             <div class="title"> <?php echo "Author: ". $post['username'] ;?></div>
             <div class="title"><?php echo $post['title'] ;?></div>

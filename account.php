@@ -14,7 +14,18 @@ $statement = $pdo->query('SELECT * FROM users WHERE user_id=:user_id');
 
 
       $user = $statement->fetch(PDO::FETCH_ASSOC);
-  
+
+      $statement = $pdo->prepare("SELECT * from posts WHERE user_id=:user_id");
+      if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+      }
+
+      $statement->bindParam(':user_id', $_SESSION['user']['user_id'], PDO::PARAM_INT);
+        $statement->execute();
+        $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
+
 
  ?>
 <article>
@@ -56,6 +67,14 @@ $statement = $pdo->query('SELECT * FROM users WHERE user_id=:user_id');
         <a href="/editaccount.php"><button type="submit" class="btn btn-primary">Edit profile</button></a>
 
 </article>
+
+      <arcticle>
+        <?php foreach ($posts as $post): ?>
+          <div class="title"><?php echo $post['title'] ;?></div>
+          <a target="_blank" href=" <?php echo $post['link_url'] ;?> "><?php echo $post['link_url']; ?></a>
+          <div class="description"> <?php echo $post['description'] ;?></div>
+        <?php endforeach ; ?>
+      </arcticle>
 
 
 <?php require __DIR__.'/views/footer.php'; ?>
