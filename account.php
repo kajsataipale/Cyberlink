@@ -1,6 +1,6 @@
 <?php require __DIR__.'/views/header.php';
 
-$statement = $pdo->query('SELECT * FROM users WHERE  username=:username');
+$statement = $pdo->query('SELECT * FROM users WHERE user_id=:user_id');
 
       if(!$statement){
         die(var_dump(
@@ -9,11 +9,13 @@ $statement = $pdo->query('SELECT * FROM users WHERE  username=:username');
       }
 
 
-      $statement->bindParam(':username', $username, PDO::PARAM_STR);
+      $statement->bindParam(':user_id', $_SESSION['user']['user_id'] ,PDO::PARAM_INT);
       $statement->execute();
 
 
       $user = $statement->fetch(PDO::FETCH_ASSOC);
+  
+
  ?>
 <article>
 
@@ -28,10 +30,10 @@ $statement = $pdo->query('SELECT * FROM users WHERE  username=:username');
   <form action="/app/auth/uploadimage.php" method="post" enctype="multipart/form-data">
 
 <div class="form-group">
-  <?php  if(!isset($_SESSION['user']['picture'])): ?>
+  <?php  if(!isset($user['image'])): ?>
     <img src="images/placeholder.png" class="img-thumbnail" width="200px">
   <?php else : ?>
-    <img src="<?php echo "images/". $user['image']?>" class="img-thumbnail" width="20%">
+    <img src="<?php echo '/images/'.$user['image']?>" class="img-thumbnail" width="20%">
 
   <?php endif;?>
 
@@ -41,17 +43,9 @@ $statement = $pdo->query('SELECT * FROM users WHERE  username=:username');
 <input type="file" name="picture" accept=".png, .jpg">
 <button type="submit"> Upload</button>
 
-<div>
-
-</div>
-
 </form>
 
-<!-- <form action="editaccount.php" method="post"> -->
-
 <p><b><?php echo $_SESSION['user']['username']; ?></b></p>
-
-
 
 <p><?php echo $_SESSION['user']['email']; ?></p>
 
@@ -60,7 +54,7 @@ $statement = $pdo->query('SELECT * FROM users WHERE  username=:username');
     <p><b><?php echo $_SESSION['user']['biography']; ?></b></p>
 
         <a href="/editaccount.php"><button type="submit" class="btn btn-primary">Edit profile</button></a>
-    <!-- </form> -->
+
 </article>
 
 

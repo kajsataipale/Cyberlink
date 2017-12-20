@@ -6,7 +6,8 @@ require __DIR__.'/../autoload.php';
 
 
 if (isset($_FILES['picture'])){
-  $picture = $_FILES['picture'];
+
+   $picture = $_FILES['picture'];
    $info = pathinfo($_FILES['picture']['name']); //Skapar array ur 'name'
    $ext = $info['extension']; //Väljer 'extension' ur 'name'
    $fileName = $_SESSION['user']['username'].'.'.$ext;
@@ -27,23 +28,23 @@ if (isset($_FILES['picture'])){
   $statement->bindParam(':username', $username, PDO::PARAM_STR);
 
     $statement->execute();
+}
 
 
-//
-// $statement = $pdo->query('SELECT * FROM users WHERE  username=:username');
-//
-//       if(!$statement){
-//         die(var_dump(
-//           $pdo->errorInfo()
-//         ));
-//       }
-//
-//
-//       $statement->bindParam(':username', $username, PDO::PARAM_STR);
-//       $statement->execute();
-//
-//
-//       $user = $statement->fetch(PDO::FETCH_ASSOC);
+$statement = $pdo->query('SELECT * FROM users WHERE  username=:username');
+
+      if(!$statement){
+        die(var_dump(
+          $pdo->errorInfo()
+        ));
+      }
+
+
+      $statement->bindParam(':username', $username, PDO::PARAM_STR);
+      $statement->execute();
+
+
+      $user = $statement->fetch(PDO::FETCH_ASSOC);
 
 
       // $_SESSION['user'] = [
@@ -55,4 +56,3 @@ if (isset($_FILES['picture'])){
       //       ];
 
       redirect('/account.php');
-}
