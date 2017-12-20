@@ -9,19 +9,17 @@ $statement = $pdo->prepare("SELECT * from users NATURAL JOIN posts WHERE user_id
 
 <?php if (isset($_SESSION['user'])): ?>
     <p>Welcome, <?php echo $_SESSION['user']['username']; ?>!</p>
-    <p>Here you can vote up or down links</p>
+    <p>Here you can see all posts and vote up or down on links</p>
 <?php endif; ?>
 
 <a href="/postlinks.php"><button type="submit" class="btn btn-primary">Create your own link</button></a>
-
-
-
-
   <article>
     <?php foreach ($posts as $post): ?>
       <div class="votediv">
-        <image class="votes" src="images/voteup.png">
-        <image class="votes" src="images/votedown.png">
+        <form action="app/posts/vote.php" method="post">
+        <input type="image" class="votes" data-vote="1" src="images/voteup.png">
+        <input type="image" class="votes" data-vote="-1" src="images/votedown.png">
+      </form>
       </div>
       <div>
             <div class="title"> <?php echo "Author: ". $post['username'] ;?></div>
