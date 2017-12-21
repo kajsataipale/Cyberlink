@@ -54,7 +54,7 @@ $statement->bindParam(':post_id', $PostId, PDO::PARAM_INT);
         </div>
 
 
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-info">Save changes</button>
     </form>
 
 

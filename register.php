@@ -25,7 +25,7 @@
             <small class="form-text text-muted">Please provide the your password (passphrase).</small>
         </div><!-- /form-group -->
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-info">Submit</button>
     </form>
 </article>
 <?php require __DIR__.'/views/footer.php'; ?>

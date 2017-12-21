@@ -1,4 +1,15 @@
 /* In this file you can add your custom styles. */
+body{
+  color: white;
+  background-color: #0f2835;
+}
+.posts{
+  border: 1px dotted black;
+  margin: 1%;
+  padding: 1%;
+  color: #49425b;
+  background-color: #fcfaf7;
+}
 .votediv {
   width: 25%;
   padding-top: 5%;
@@ -7,6 +18,8 @@
   width: 10%;
   padding-right: 1%;
   color: transparent;
+  background-color: #d3d1d6;
+  cursor: pointer;
 }
 
 .up {

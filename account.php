@@ -36,11 +36,11 @@ $statement = $pdo->query('SELECT * FROM users WHERE user_id=:user_id');
     <p>This is the account page.</p>
     <p>Here you can edit your profile and upload a profile picture</p>
 </article>
-<article>
+<article class="row">
 
   <form action="/app/auth/uploadimage.php" method="post" enctype="multipart/form-data">
 
-<div class="form-group">
+<div class="form-group col">
   <?php  if(!isset($user['image'])): ?>
     <img src="images/placeholder.png" class="img-thumbnail" width="200px">
   <?php else : ?>
@@ -48,32 +48,31 @@ $statement = $pdo->query('SELECT * FROM users WHERE user_id=:user_id');
 
   <?php endif;?>
 
-
-
-</div class="form-group">
-<input type="file" name="picture" accept=".png, .jpg">
-<button type="submit"> Upload</button>
-
+  <input type="file" name="picture" accept=".png, .jpg">
+  <button type="submit" class="btn btn-info"> Upload</button>
 </form>
 
-<p><b><?php echo $_SESSION['user']['username']; ?></b></p>
+  <p><b><?php echo $_SESSION['user']['username']; ?></b></p>
 
-<p><?php echo $_SESSION['user']['email']; ?></p>
+  <p><?php echo $_SESSION['user']['email']; ?></p>
 
 
-            <label for="email"><i>Biography</i></label>
-    <p><b><?php echo $_SESSION['user']['biography']; ?></b></p>
+    <label for="email"><i>Biography</i></label>
+      <p><b><?php echo $_SESSION['user']['biography']; ?></b></p>
 
-        <a href="/editaccount.php"><button type="submit" class="btn btn-primary">Edit profile</button></a>
+    <a href="/editaccount.php"><button type="submit" class="btn btn-info">Edit profile</button></a>
+</div>
 
-</article>
 
-      <arcticle>
+      <div class="col-sm">
         <?php foreach ($posts as $post): ?>
-          <div class="title"><?php echo $post['title'] ;?></div>
-          <a target="_blank" href=" <?php echo $post['link_url'] ;?> "><?php echo $post['link_url']; ?></a>
-          <div class="description"> <?php echo $post['description'] ;?></div>
+          <div  class="posts">
+            <div class="title"><?php echo $post['title'] ;?></div>
+            <a target="_blank" href=" <?php echo $post['link_url'] ;?> "><?php echo $post['link_url']; ?></a>
+            <div class="description"> <?php echo $post['description'] ;?></div>
+          </div>
         <?php endforeach ; ?>
+      </div>
       </arcticle>
 
 

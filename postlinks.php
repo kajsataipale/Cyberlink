@@ -37,7 +37,7 @@ $user = $statement->fetch(PDO::FETCH_ASSOC);
             <small class="form-text text-muted">Please provide a description for your link.</small>
         </div>
 
-        <button type="submit" class="btn btn-primary">Post</button>
+        <button type="submit" class="btn btn-info">Post</button>
     </form>
 </article>
 
