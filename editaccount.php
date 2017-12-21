@@ -29,10 +29,10 @@
 
         <div class="form-group">
             <label for="password">Password</label>
-            <input class="form-control" type="password" name="password" value="lösenord">
-            <small class="form-text text-muted">Please provide the your password (passphrase).</small>
+            <input class="form-control" type="password" name="password">
+            <small class="form-text text-muted">Please provide your new password (passphrase).</small>
         </div>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-info">Save changes</button>
     </form>
 </article>
 

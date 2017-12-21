@@ -48,6 +48,7 @@ $statement = $pdo->query('SELECT * FROM users WHERE user_id=:user_id');
 
   <?php endif;?>
 
+
   <input type="file" name="picture" accept=".png, .jpg">
   <button type="submit" class="btn btn-info"> Upload</button>
 </form>
@@ -60,9 +61,8 @@ $statement = $pdo->query('SELECT * FROM users WHERE user_id=:user_id');
     <label for="email"><i>Biography</i></label>
       <p><b><?php echo $_SESSION['user']['biography']; ?></b></p>
 
-    <a href="/editaccount.php"><button type="submit" class="btn btn-info">Edit profile</button></a>
+    <a href="editaccount.php" class="btn btn-info">Edit profile</a>
 </div>
-
 
       <div class="col-sm">
         <?php foreach ($posts as $post): ?>

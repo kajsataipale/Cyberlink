@@ -9,8 +9,8 @@ if (isset($_FILES['picture'])){
 
    $picture = $_FILES['picture'];
    $info = pathinfo($_FILES['picture']['name']); //Skapar array ur 'name'
-   $ext = $info['extension']; //Väljer 'extension' ur 'name'
-   $fileName = $_SESSION['user']['username'].'.'.$ext;
+   //$ext = $info['extension']; //Väljer 'extension' ur 'name'
+   $fileName = $_SESSION['user']['username'].'.'.'png';
    $username= $_SESSION['user']['username'];
 
   move_uploaded_file($picture['tmp_name'], __DIR__.'/../../images/'.$fileName);
