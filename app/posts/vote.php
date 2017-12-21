@@ -6,6 +6,7 @@ require __DIR__.'/../autoload.php';
 
 
 
+
 if (isset($_POST['post_id'])) {
 
 
@@ -21,20 +22,40 @@ if (isset($_POST['up'] )){
   $direction= filter_var($_POST['down'], FILTER_SANITIZE_NUMBER_INT);
 }
 
+$statement = $pdo->prepare('SELECT * from votes WHERE user_id=:user_id AND post_id=:post_id');
+if (!$statement) {
+ die(var_dump($pdo->errorInfo()));
+}
 
+$statement->bindParam(':user_id', $_SESSION['user']['user_id'], PDO::PARAM_INT);
+$statement->bindParam(':post_id', $_POST['post_id'], FILTER_SANITIZE_NUMBER_INT);
+$statement->execute();
 
+$vote = $statement->fetch(PDO::FETCH_ASSOC);
 
+if($vote){
+  if($vote['direction']===$direction){
+      redirect('/home.php');
 
+  } // Update to current vote
+$statement= $pdo->prepare('UPDATE votes SET direction=:direction WHERE user_id=:user_id AND post_id=:post_id');
+$statement->bindParam(':direction', $direction, PDO::PARAM_INT);
+$statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+$statement->bindParam(':post_id', $PostId, PDO::PARAM_INT);
+$statement->execute();
+
+  redirect('/home.php');
+}else {
   $statement = $pdo->prepare('INSERT INTO votes (user_id, post_id, direction) VALUES (:user_id, :post_id, :direction)');
     if (!$statement) {
      die(var_dump($pdo->errorInfo()));
    }
-
 
    $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
    $statement->bindParam(':post_id', $PostId, PDO::PARAM_INT);
    $statement->bindParam(':direction', $direction, PDO::PARAM_INT);
    $statement->execute();
 
+    redirect('/home.php');
 }
-   redirect('/home.php');
+}

@@ -6,4 +6,26 @@
 .votes {
   width: 10%;
   padding-right: 1%;
+  color: transparent;
+}
+
+.up {
+  width: 15%;
+  padding-right: 1%;
+  color: transparent;
+  background-image: url('../../images/voteup.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: 50%;
+  padding: 1%;
+}
+
+.down {
+  width: 15%;
+  padding-right: 1%;
+  color: transparent;
+  background-image: url('../../images/votedown.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: 50%;
 }
