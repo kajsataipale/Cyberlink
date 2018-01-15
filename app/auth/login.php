@@ -9,17 +9,20 @@ if (isset($_POST['email'], $_POST['password'])) {
     $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
 
     // Prepare, bind email parameter and execute the database query.
-    $statement = $pdo->prepare('SELECT * FROM users WHERE email = :email OR username= :email');
-    $statement->bindParam(':email', $email, PDO::PARAM_STR);
-    $statement->execute();
+
+
+     $statement = $pdo->prepare('SELECT * FROM users WHERE email = :email OR username= :email');
+     $statement->bindParam(':email', $email, PDO::PARAM_STR);
+     $statement->execute();
 
     // Fetch the user as an associative array.
-    $user = $statement->fetch(PDO::FETCH_ASSOC);
+     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
     // If we couldn't find the user in the database, redirect back to the login
     // page with our custom redirect function.
     if (!$user) {
         redirect('/login.php');
+        // If the password and user does not exit/match echo out a text.
     }
 
     // If we found the user in the database, compare the given password from the

@@ -2,43 +2,63 @@
 body{
   color: white;
   background-color: #0f2835;
+  box-sizing: border-box;
+}
+.home {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.makepost{
+  padding: 5%;
+  height: 40vh;
+  width: 50%;
+  background-color: #5AB9E8;
+  margin-top: 3%;
+  margin-right: 3%;
+  border-radius: 5%;
+  font-size: 100%;
 }
 .posts{
-  border: 1px dotted grey;
+  border: 4px solid white;
   margin: 1%;
-  padding: 1%;
+  padding: 4%;
   color: #49425b;
   background-color: #fcfaf7;
+  width: 100%;
+  border-radius: 5%;
+
 }
 .votediv {
-  width: 25%;
+  width: 50%;
   padding-top: 5%;
 }
 .votes {
-  width: 10%;
-  padding-right: 1%;
+  width: 12%;
+  padding: 1%;
   color: transparent;
-  background-color: #d3d1d6;
   cursor: pointer;
+  margin: 1%;
+  background-color: #fcfaf7;
 }
 
 .up {
-  width: 15%;
+  width: 14%;
   padding-right: 1%;
   color: transparent;
   background-image: url('../../images/voteup.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  border-radius: 50%;
-  padding: 1%;
+  border-radius: 45%;
+  margin: 1%;
 }
 
 .down {
-  width: 15%;
+  width: 14%;
   padding-right: 1%;
   color: transparent;
   background-image: url('../../images/votedown.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  border-radius: 50%;
+  border-radius: 45%;
 }
