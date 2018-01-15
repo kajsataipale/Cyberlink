@@ -14,19 +14,20 @@ body{
   height: 40vh;
   width: 50%;
   background-color: #5AB9E8;
-  margin-top: 3%;
   margin-right: 3%;
   border-radius: 5%;
   font-size: 100%;
+  position: fixed;
+  z-index: 100;
 }
 .posts{
-  border: 4px solid white;
   margin: 1%;
   padding: 4%;
   color: #49425b;
   background-color: #fcfaf7;
-  width: 100%;
+  width: 50%;
   border-radius: 5%;
+  float: right;
 
 }
 .votediv {

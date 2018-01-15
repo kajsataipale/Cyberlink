@@ -7,7 +7,4 @@ declare(strict_types=1);
 return [
     'title' => 'Community',
     'database_path' => sprintf('sqlite:%s/database/database.db', __DIR__),
-    'posts'=>'post links',
-    'here'=>'Here you can',
-    'member'=>'member'
 ];
