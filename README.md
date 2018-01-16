@@ -7,7 +7,7 @@ School assignment to create a reddit clone
 ## How to start
 * Clone the repository to your local drive
 * Set up MAMP or something similar and set the root directory to the downloaded file
-* All done!
+* Open up the downloaded folder with MAMP and you are all done!
 
 ## Features
 * As a user I should be able to create an account.
