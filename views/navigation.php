@@ -1,4 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <img src="../images/logaCommunity.png" class="logo">
     <?php if (isset($_SESSION['user'])): ?>
       <a class="navbar-brand community" href="/home.php"><?php echo $config['title']; ?></a>
       <?php else: ?>

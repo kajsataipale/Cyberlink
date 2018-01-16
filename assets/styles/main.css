@@ -8,6 +8,10 @@ body{
 h1, .community{
   font-family: 'Playfair Display SC', serif;
 }
+
+.logo {
+  height: 10vh;
+}
 /* Styling for homepage */
 .home {
   display: flex;
