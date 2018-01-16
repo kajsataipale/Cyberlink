@@ -9,6 +9,12 @@
 </article>
   <!-- The form send the information inserted to the edit.php page -->
 <article>
+  <?php if(isset($_SESSION['error'])):?>
+    <div class="alert alert-danger" role="alert">
+      <?php echo $_SESSION['error']; ?>
+    </div>
+    <?php unset($_SESSION['error']) ;?>
+  <?php endif ;?>
     <form action="app/auth/edit.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="email">Username</label>

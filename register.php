@@ -7,12 +7,6 @@
 
 <article>
   <!-- The form sends the inserted information to the add.php page -->
-    <?php if(isset($_SESSION['error'])):?>
-      <div class="alert alert-danger" role="alert">
-        <?php echo $_SESSION['error']; ?>
-      </div>
-      <?php unset($_SESSION['error']) ;?>
-    <?php endif ;?>
     <form action="app/auth/add.php" method="post">
         <div class="form-group">
             <label for="email">User name</label>
