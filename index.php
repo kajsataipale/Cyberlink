@@ -2,7 +2,7 @@
 
 <article>
   <div class="row">
-  <div class="col-12 .col-md-2">
+  <div class="col-12 .col-md-2 welcome">
   <h1><?php echo $config['title']; ?></h1>
     <p> Welcome to <?php echo $config['title']; ?></p>
     <p><p/>

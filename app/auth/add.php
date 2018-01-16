@@ -43,6 +43,6 @@ if (isset($_POST['email'], $_POST['password'], $_POST['username'])) {
       $_SESSION['error']="The user already exist";
       redirect('/register.php');
       // If the user already exist in the database, direct back to the registerpage
-
     }
 }
+  redirect('/register.php');
