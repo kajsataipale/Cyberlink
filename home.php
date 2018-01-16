@@ -36,7 +36,6 @@ if (!$fetchingUser) {
       <?php echo $vote['direction'];?>
     <?php else: echo "0";?>
     <?php endif; ?>
-
         <input type="submit" name="down" class="votes down" data-vote="-1" value="-1" src="images/votedown.png">
       </form>
       </div>
