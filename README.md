@@ -1,4 +1,4 @@
-<img src="https://media.giphy.com/media/TtdorFbPwFyso/giphy.gif" alt="02 - Logic & Presentation" width="100%">
+<img src="https://media.giphy.com/media/Ahld6gnSINdU4/giphy.gif" alt="02 - Logic & Presentation" width="100%">
 
 
 # Cyberlink
@@ -6,10 +6,10 @@ School assignment to create a reddit clone
 
 ## How to start
 * Clone the repository to your local drive
-* Set up MAMP or something similar and set the root directory
-*
+* Set up MAMP or something similar and set the root directory to the downloaded file
+* All done!
 
-## Criterias
+## Features
 * As a user I should be able to create an account.
 
 * As a user I should be able to login.
@@ -36,5 +36,5 @@ School assignment to create a reddit clone
 
 
 ## Testers
-* 
+*
 *
