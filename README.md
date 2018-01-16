@@ -36,5 +36,5 @@ School assignment to create a reddit clone
 
 
 ## Testers
-* 1.<br>
-* 2.
+* 
+*
