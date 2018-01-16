@@ -14,13 +14,13 @@ if (isset($_POST['email'], $_POST['password'], $_POST['username'])) {
         $userEmail = $user['email'];
         $Username = $user['username'];
         $userID = $user['user_id'];
-        // If the email entered by the user is equal to an existing email an error session is saved and the database is not updated
+        // If the email already exist an error session is saved and the database is not updated
      if ($userEmail === $email) {
        //if the email alreary exist echo out a message
          $_SESSION['error'] = "The email address already exists";
          redirect('/register.php');
      }
-     // If the username enered by the user is equal to an existing username an error session is saved and the database is not updated
+     // If the username already exist an error session is saved and the database is not updated
      if ($Username === $username) {
        //if the username alreary exist echo out a message
          $_SESSION['error'] = "The username already exists";

@@ -36,5 +36,5 @@ School assignment to create a reddit clone
 
 
 ## Testers
-*
-*
+* Maria Eidland
+* Beatrice Svensson
