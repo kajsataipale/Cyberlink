@@ -9,12 +9,12 @@ if (!$fetchingUser) {
   $posts = $fetchingUser->fetchAll(PDO::FETCH_ASSOC);
 // Fetch all the post the user information
 ?>
-<div class="home row">
-  <article class="makepost col-4 justify-content-start">
+<div class="row home">
+  <article class="makepost col-12 col-md-6 justify-content-start">
     <?php if (isset($_SESSION['user'])): ?>
         <p>Welcome, <?php echo $_SESSION['user']['username']; ?>!</p>
 
-        <a href="/postlinks.php"><button type="submit" class="btn btn-info">Create your own link</button></a>
+        <a href="/postlinks.php"><button type="submit" class="btn btn-info createLink">Create your own link</button></a>
     <?php endif; ?>
   </article>
   <article>
@@ -27,7 +27,7 @@ if (!$fetchingUser) {
       // Check to see if the postid is the same and if their is votes echo it out
       // otherwise echo out 0.
       ?>
-      <div  class="posts col-8 justify-content-end">
+      <div  class="posts col-12 col-md-6 justify-content-end">
       <div class="votediv">
         <form action="app/posts/vote.php" method="post">
         <input type="hidden" name="post_id" value="<?php echo $post['post_id']; ?>">

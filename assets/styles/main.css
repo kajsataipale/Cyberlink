@@ -17,7 +17,7 @@ h1, .community{
 .makepost{
   padding: 5%;
   height: 40vh;
-  width: 50%;
+  width: 30%;
   background-color: #5AB9E8;
   margin-right: 3%;
   border-radius: 5%;
@@ -33,7 +33,6 @@ h1, .community{
   width: 50%;
   border-radius: 5%;
   float: right;
-
 }
 .votediv {
   width: 50%;
@@ -81,6 +80,7 @@ h1, .community{
   margin: 1%;
   padding: 1%;
   height: 50vh;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,9 +92,35 @@ h1, .community{
   border: 1px solid white;
   margin: 1%;
   padding: 1%;
+  height: 50vh;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin: 0 auto;
+}
+
+@media only screen and (max-width : 700px) {
+  .home {
+    display: flex;
+    justify-content: center;
+  }
+  .makepost{
+    padding: 5%;
+    height: 12%;
+    width: 100%;
+    background-color: #5AB9E8;
+    font-size: 100%;
+    position: static;
+    display: flex;
+    margin-right: 0%;
+  }
+  .createLink {
+    margin-left: 3%;
+    align-self: flex-end;
+  }
+  .posts{
+    width: 100%;
+  }
 }
