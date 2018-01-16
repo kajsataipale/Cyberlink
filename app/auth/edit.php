@@ -17,6 +17,7 @@ if (isset($_POST['email'], $_POST['password'], $_POST['biography'])) {
       $statement->bindParam(':id', $_SESSION['user']['user_id'], PDO::PARAM_INT);
       $statement->execute();
       $users = $statement->fetchAll(PDO::FETCH_ASSOC);
+      // fetching the users as an array and storing the information in variables
         foreach ($users as $user) {
           $userEmail = $user['email'];
           $Username = $user['username'];
