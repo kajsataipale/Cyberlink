@@ -22,15 +22,12 @@ if (isset($_POST['email'], $_POST['password'], $_POST['username'])) {
     $statement->execute();
 
 
+
+    $statement = $pdo->query('SELECT * FROM users WHERE  username= :username');
+    $statement->bindParam(':username', $username, PDO::PARAM_STR);
+    $statement->execute();
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
     if (!$user) {
-      $statement = $pdo->query('SELECT * FROM users WHERE  username= :username');
-      $statement->bindParam(':username', $username, PDO::PARAM_STR);
-      $statement->execute();
-
-
-      $user = $statement->fetch(PDO::FETCH_ASSOC);
-
-
       $_SESSION['user'] = [
                 'user_id'=> $user['user_id'],
                 'username' => $user['username'],
@@ -39,11 +36,11 @@ if (isset($_POST['email'], $_POST['password'], $_POST['username'])) {
             ];
       redirect('/account.php');
       //Check to see if the user is unique, if it is add the user in to the database.
-      // store the information in $_SESSION['user'] and redirect the user to the accountpage. 
-
+      // store the information in $_SESSION['user'] and redirect the user to the accountpage.
     }
 
     if ($user) {
+      $_SESSION['error']="The user already exist";
       redirect('/register.php');
       // If the user already exist in the database, direct back to the registerpage
 
