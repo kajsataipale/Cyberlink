@@ -8,14 +8,13 @@ require __DIR__.'/../autoload.php';
 if (isset($_FILES['picture'])){
 
    $picture = $_FILES['picture'];
-   $info = pathinfo($_FILES['picture']['name']); //Skapar array ur 'name'
-   //$ext = $info['extension']; //Väljer 'extension' ur 'name'
+   $info = pathinfo($_FILES['picture']['name']);
    $fileName = $_SESSION['user']['username'].'.'.'png';
    $username= $_SESSION['user']['username'];
 
   move_uploaded_file($picture['tmp_name'], __DIR__.'/../../images/'.$fileName);
 
-
+  // store the image name in a variable and then store the image in the images file and insert the image name into the database
   $statement=$pdo->prepare('UPDATE users set image=:picture WHERE username=:username');
 
   if(!$statement){
@@ -23,7 +22,6 @@ if (isset($_FILES['picture'])){
       $pdo->errorInfo()
     ));
   }
-  // $statement->bindParam(':id', $_SESSION['user']['user_id'], PDO::PARAM_INT);
   $statement->bindParam(':picture', $fileName, PDO::PARAM_STR);
   $statement->bindParam(':username', $username, PDO::PARAM_STR);
 
@@ -45,14 +43,5 @@ $statement = $pdo->query('SELECT * FROM users WHERE  username=:username');
 
 
       $user = $statement->fetch(PDO::FETCH_ASSOC);
-
-
-      // $_SESSION['user'] = [
-      //           'picture'=> $user['image'],
-      //           'user_id'=> $user['user_id'],
-      //           'username' => $user['username'],
-      //           'email' => $user['email'],
-      //           'biography' => $user['biography'],
-      //       ];
 
       redirect('/account.php');

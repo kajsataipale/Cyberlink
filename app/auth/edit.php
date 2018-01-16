@@ -14,6 +14,7 @@ if (isset($_POST['email'], $_POST['password'], $_POST['biography'])) {
 
 
     $statement = $pdo->prepare('UPDATE users SET email=:email, username=:username, biography=:bio, password=:password WHERE user_id=:id');
+    // Update the user information
 
     if (!$statement) {
         die(var_dump($pdo->errorInfo()));
@@ -32,7 +33,7 @@ if (isset($_POST['email'], $_POST['password'], $_POST['biography'])) {
 $statement = $pdo->query('SELECT * FROM users WHERE  username= :username');
 $statement->bindParam(':username', $username, PDO::PARAM_STR);
 $statement->execute();
-
+  // fetch the updated information about the user and redirect to the accountpage
 
 $user = $statement->fetch(PDO::FETCH_ASSOC);
 

@@ -8,10 +8,8 @@ $statement = $pdo->query('SELECT * FROM users WHERE user_id=:user_id');
         ));
       }
 
-
       $statement->bindParam(':user_id', $_SESSION['user']['user_id'] ,PDO::PARAM_INT);
       $statement->execute();
-
 
       $user = $statement->fetch(PDO::FETCH_ASSOC);
 
@@ -23,10 +21,6 @@ $statement = $pdo->query('SELECT * FROM users WHERE user_id=:user_id');
       $statement->bindParam(':user_id', $_SESSION['user']['user_id'], PDO::PARAM_INT);
         $statement->execute();
         $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-
-
-
  ?>
 <article>
 
@@ -41,29 +35,24 @@ $statement = $pdo->query('SELECT * FROM users WHERE user_id=:user_id');
   <form action="/app/auth/uploadimage.php" method="post" enctype="multipart/form-data">
 
 <div class="form-group col">
+
+  <!-- Check to see if their is something in the the image column in the database 
+      if it is echo out the image, if not echo out the placeholder -->
   <?php  if(!isset($user['image'])): ?>
     <img src="images/placeholder.png" class="img-thumbnail" width="200px">
   <?php else : ?>
     <img src="<?php echo '/images/'.$user['image']?>" class="img-thumbnail" width="20%">
-
   <?php endif;?>
-
-
   <input type="file" name="picture" accept=".png, .jpg">
   <button type="submit" class="btn btn-info"> Upload</button>
 </form>
-
   <p><b><?php echo $_SESSION['user']['username']; ?></b></p>
-
   <p><?php echo $_SESSION['user']['email']; ?></p>
-
-
     <label for="email"><i>Biography</i></label>
       <p><b><?php echo $_SESSION['user']['biography']; ?></b></p>
 
     <a href="editaccount.php" class="btn btn-info">Edit profile</a>
 </div>
-
       <div class="col-sm">
         <?php foreach ($posts as $post): ?>
           <div  class="posts">

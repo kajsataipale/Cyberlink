@@ -4,21 +4,18 @@ declare(strict_types=1);
 
 require __DIR__.'/../autoload.php';
 
-
-
-
+// Check to see if the postid is in the post request.
 if (isset($_POST['post_id'])) {
-
 
 $PostId = filter_var($_POST['post_id'], FILTER_SANITIZE_NUMBER_INT);
 $user_id= filter_var($_SESSION['user']['user_id'], FILTER_SANITIZE_NUMBER_INT);
 
 if (isset($_POST['up'] )){
-
+// if the post request is up, the value is 1
   $direction= filter_var($_POST['up'], FILTER_SANITIZE_NUMBER_INT);
 
 } elseif (isset($_POST['down'])){
-
+// if the post request is down, the value is -1
   $direction= filter_var($_POST['down'], FILTER_SANITIZE_NUMBER_INT);
 }
 

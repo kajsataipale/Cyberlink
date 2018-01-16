@@ -38,17 +38,14 @@ if (isset($_POST['email'], $_POST['password'], $_POST['username'])) {
                 'biography' => $user['biography'],
             ];
       redirect('/account.php');
-
+      //Check to see if the user is unique, if it is add the user in to the database.
+      // store the information in $_SESSION['user'] and redirect the user to the accountpage. 
 
     }
 
-    // If we found the user in the database, compare the given password from the
-    // request with the one in the database using the password_verify function.
     if ($user) {
       redirect('/register.php');
-        // If the password was valid we know that the user exists and provided
-        // the correct password. We can now save the user in our session.
-        // Remember to not save the password in the session!
+      // If the user already exist in the database, direct back to the registerpage
 
     }
 }

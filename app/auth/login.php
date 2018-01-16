@@ -8,9 +8,6 @@ require __DIR__.'/../autoload.php';
 if (isset($_POST['email'], $_POST['password'])) {
     $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
 
-    // Prepare, bind email parameter and execute the database query.
-
-
      $statement = $pdo->prepare('SELECT * FROM users WHERE email = :email OR username= :email');
      $statement->bindParam(':email', $email, PDO::PARAM_STR);
      $statement->execute();
@@ -18,19 +15,22 @@ if (isset($_POST['email'], $_POST['password'])) {
     // Fetch the user as an associative array.
      $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-    // If we couldn't find the user in the database, redirect back to the login
-    // page with our custom redirect function.
+    // If we couldn't find the user in the database, redirect back to the login page
+
     if (!$user) {
         redirect('/login.php');
-        // If the password and user does not exit/match echo out a text.
+        // If the user does not exist, redirect back to the login page
+    }
+    if (!password_verify($_POST['password'], $user['password'])) {
+        redirect('/login.php');
+          // If the password and user does not exit/match redirect to the login page.
     }
 
-    // If we found the user in the database, compare the given password from the
-    // request with the one in the database using the password_verify function.
+
     if (password_verify($_POST['password'], $user['password'])) {
-        // If the password was valid we know that the user exists and provided
-        // the correct password. We can now save the user in our session.
-        // Remember to not save the password in the session!
+      // If the user is found in the database and the password is correct
+      // then I store the information in $_SESSION['user'] and redirect to the account page.
+
         unset($user['password']);
 
 
@@ -42,9 +42,6 @@ if (isset($_POST['email'], $_POST['password'])) {
                   'biography' => $user['biography'],
               ];
 
-        redirect('/home.php');
+        redirect('/account.php');
     }
 }
-
-// We should put this redirect in the end of this file since we always want to
-// redirect the user back from this file. We don't know

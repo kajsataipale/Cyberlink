@@ -6,14 +6,13 @@
 </article>
 
 <article>
-
-
+  <!-- The form sends the inserted information to the add.php page -->
     <form action="app/auth/add.php" method="post">
         <div class="form-group">
             <label for="email">User name</label>
             <input class="form-control" type="name" name="username" placeholder="francisdarjeeling" required>
             <small class="form-text text-muted">Please provide a user name</small>
-        </div><!-- /form-group -->
+        </div>
         <div class="form-group">
             <label for="email">Email</label>
             <input class="form-control" type="email" name="email" placeholder="francis@darjeeling.com" required>
@@ -23,8 +22,7 @@
             <label for="password">Password</label>
             <input class="form-control" type="password" name="password" required>
             <small class="form-text text-muted">Please provide the your password (passphrase).</small>
-        </div><!-- /form-group -->
-
+        </div>
         <button type="submit" class="btn btn-info">Submit</button>
     </form>
 </article>

@@ -3,14 +3,14 @@
 declare(strict_types=1);
 
 require __DIR__.'/../autoload.php';
-
+// Check if everything needed exists in the POST request.
 if (isset($_POST['post_id'],$_POST['title'],$_POST['description'],$_POST['link_url'] )){
   $PostId = filter_var($_POST['post_id'], FILTER_SANITIZE_NUMBER_INT);
   $title = filter_var($_POST['title'], FILTER_SANITIZE_STRING);
   $description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
   $link_url = filter_var($_POST['link_url'], FILTER_SANITIZE_URL);
 
-
+// update the post
   $statement = $pdo->prepare("UPDATE posts set title=:title, description=:description, link_url=:link_url WHERE post_id=:post_id");
   if (!$statement) {
     die(var_dump($pdo->errorInfo()));

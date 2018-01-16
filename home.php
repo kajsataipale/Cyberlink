@@ -7,8 +7,7 @@ if (!$fetchingUser) {
 }
   $fetchingUser->execute();
   $posts = $fetchingUser->fetchAll(PDO::FETCH_ASSOC);
-
-
+// Fetch all the post the user information
 ?>
 <div class="home row">
   <article class="makepost col-4 justify-content-start">
@@ -25,6 +24,8 @@ if (!$fetchingUser) {
       $statement->bindParam(':post_id', $post['post_id']);
       $statement->execute();
       $vote = $statement->fetch(PDO::FETCH_ASSOC);
+      // Check to see if the postid is the same and if their is votes echo it out
+      // otherwise echo out 0.
       ?>
       <div  class="posts col-8 justify-content-end">
       <div class="votediv">
@@ -43,8 +44,6 @@ if (!$fetchingUser) {
             <div class="title"><?php echo $post['title'] ;?></div>
              <a target="_blank" href=" <?php echo $post['link_url'] ;?> "><?php echo $post['link_url']; ?></a>
             <div class="description"> <?php echo $post['description'] ;?></div>
-            <br>
-
             <?php if ($post['user_id'] == $_SESSION['user']['user_id']): ?>
               <form action="editpost.php" method="post">
                <input type="hidden" name="post_id" value="<?php echo $post['post_id']; ?>">

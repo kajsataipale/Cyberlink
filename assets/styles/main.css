@@ -3,7 +3,12 @@ body{
   color: white;
   background-color: #0f2835;
   box-sizing: border-box;
+  font-family: 'Pragati Narrow', sans-serif;
 }
+h1, .community{
+  font-family: 'Playfair Display SC', serif;
+}
+/* Styling for homepage */
 .home {
   display: flex;
   flex-direction: row;
@@ -62,4 +67,18 @@ body{
   background-repeat: no-repeat;
   background-size: 100% 100%;
   border-radius: 45%;
+}
+
+/* Styling for Index file */
+
+.createMember {
+border: 1px solid white;
+margin: 1%;
+padding: 1%;
+}
+
+.alreadyMember {
+border: 1px solid white;
+margin: 1%;
+padding: 1%;
 }

@@ -14,7 +14,7 @@ if (isset($_POST['post_id'])){
     die(var_dump($pdo->errorInfo()));
   }
 }
-
+// here the database check to see if the postid matches and if they do the database deletes the post.
  $statement->bindParam(':post_id', $PostId, PDO::PARAM_INT);
  $statement->execute();
 
