@@ -22,13 +22,12 @@ if (isset($_POST['email'], $_POST['password'], $_POST['biography'])) {
           $userEmail = $user['email'];
           $Username = $user['username'];
           $userID = $user['user_id'];
-          // If the email already exist an error session is saved and the database is not updated
+        // Check to see if the username or email already exist.
        if ($userEmail === $email) {
          //if the email alreary exist echo out a message
            $_SESSION['error'] = "The email address already exists";
            redirect('/editaccount.php');
        }
-       // If the username already exist an error session is saved and the database is not updated
        if ($Username === $username) {
          //if the username alreary exist echo out a message
            $_SESSION['error'] = "The username already exists";
