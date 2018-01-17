@@ -19,7 +19,7 @@
             <?php else: ?>
                 <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/login.php' ? 'active' : ''; ?>" href="login.php">Login</a>
             <?php endif; ?>
-        </li><!-- /nav-item -->
+        </li>
 
-    </ul><!-- /navbar-nav -->
-</nav><!-- /navbar -->
+    </ul>
+</nav>
